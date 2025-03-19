@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "1193c8be-bf95-49e7-af1d-12ad63160953",
+		"name": "Q-ctrl",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14318747",
+		"_collection_link": "https://speeding-station-59132.postman.co/workspace/COMP9900----Test~3d7574d1-9e95-463d-8039-6565b9556f59/collection/14318747-1193c8be-bf95-49e7-af1d-12ad63160953?action=share&source=collection_link&creator=14318747"
+	},
+	"item": [
+		{
+			"name": "Create recipe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"title\": \"Pancakes\",\n    \"ingredients\": [\n        {\n            \"name\": \"Flour\",\n            \"unit\": \"grams\",\n            \"quantity\": 200\n        },\n        {\n            \"name\": \"Milk\",\n            \"unit\": \"milliliters\",\n            \"quantity\": 250\n        },\n        {\n            \"name\": \"Eggs\",\n            \"unit\": \"pieces\",\n            \"quantity\": 2\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/recipes/create/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"recipes",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all recipes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/recipes/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"recipes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get recipe by id and servings and units",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/recipes/1/?servings=2&units=pounds%2C%20ounces",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"recipes",
+						"1",
+						""
+					],
+					"query": [
+						{
+							"key": "servings",
+							"value": "2"
+						},
+						{
+							"key": "units",
+							"value": "pounds%2C%20ounces"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get recipe by id and servings and units Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/recipes/delete/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"recipes",
+						"delete",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
