@@ -28,6 +28,7 @@ class RecipeAPITest(APITestCase):
         response = self.client.get(reverse("recipes-list"))
         self.assertEqual(response.status_code, 200)
         self.assertGreater(len(response.data), 0)
+        self.recipes_collection.delete_many({})
 
     def test_create_recipe(self):
         payload = {
@@ -52,6 +53,7 @@ class RecipeAPITest(APITestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(
             response.data["ingredients"][0]["quantity"],
-            200 / 0.00220462,
+            200 * 0.00220462,
         )
         self.assertIn(response.data["ingredients"][0]["unit"], ["pounds", "ounces"])
+        self.recipes_collection.delete_many({})

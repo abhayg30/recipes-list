@@ -1,9 +1,9 @@
 def grams_to_pounds(grams):
-    return grams / 0.00220462
+    return grams * 0.00220462
 
 
 def pounds_to_grams(pounds):
-    return pounds * 0.00220462
+    return pounds * 453.592
 
 
 def milliliters_to_ounces(milliliters):

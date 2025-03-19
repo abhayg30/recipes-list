@@ -39,6 +39,12 @@ class GetRecipe(APIView):
         return Response(recipe)
 
 
+class DeleteRecipes(APIView):
+    def delete(self, request):
+        recipes_collection.delete_many({})
+        return Response("All recipes deleted", status=status.HTTP_204_NO_CONTENT)
+
+
 def convert_units_and_servings(ingredients, servings, units):
     for ingredient in ingredients:
         ingredient["quantity"] *= servings
