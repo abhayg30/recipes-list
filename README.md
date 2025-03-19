@@ -15,7 +15,7 @@ recipes/
 │   ├── wsgi.py
 │   ├── asgi.py
 │   ├── serializers.py
-│   ├──util.py
+│   ├── util.py
 │   ├── models.py
 │   ├── tests.py
 │   └── views.py
