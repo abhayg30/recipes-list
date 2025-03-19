@@ -1,0 +1,7 @@
+*.pyc
+__pycache__/
+*/migrations/*
+.env
+env/
+.vscode/
+.DS_Store
