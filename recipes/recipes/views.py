@@ -15,6 +15,15 @@ class RecipesList(APIView):
         return Response(list(recipes))
 
 
+# title to be empty (X)
+# ingredients to be empty (X)
+# id should not exist in db (Y)
+# name, quantity, should in ingredients (Y)
+
+
+# Recipe --> id, title, ingredient_fk_id
+
+
 class CreateRecipe(APIView):
     def post(self, request):
         serializer = RecipesSerializers(data=request.data)
