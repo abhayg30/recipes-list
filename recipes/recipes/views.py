@@ -28,7 +28,7 @@ class GetRecipe(APIView):
     def get(self, request, id):
         data = request.query_params
         servings = int(data.get("servings", 1))
-        units = data.get("units", "")
+        units = data.get("units", "")  # "pounds, ounces"
         units = units.split(", ")
         recipe = recipes_collection.find_one({"id": int(id)}, {"_id": 0, "id": 0})
         if not recipe:
@@ -43,6 +43,15 @@ class DeleteRecipes(APIView):
     def delete(self, request):
         recipes_collection.delete_many({})
         return Response("All recipes deleted", status=status.HTTP_204_NO_CONTENT)
+
+
+class DeleteByID(APIView):
+    def delete(self, request, id):
+        recipe = recipes_collection.find_one({"id": int(id)})
+        if not recipe:
+            return Response("Recipe not found", status=status.HTTP_404_NOT_FOUND)
+        recipes_collection.delete_one({"id": int(id)})
+        return Response(f"Recipe deleted {id}", status=status.HTTP_204_NO_CONTENT)
 
 
 def convert_units_and_servings(ingredients, servings, units):

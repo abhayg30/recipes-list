@@ -43,6 +43,7 @@ class RecipeAPITest(APITestCase):
         response = self.client.post(reverse("create-recipe"), payload, format="json")
         self.assertEqual(response.status_code, 201)
         self.assertIn("title", response.data)
+        self.assertEqual(payload, response.data)
 
     def test_retrieve_ingredients_with_servings_and_units(self):
         response = self.client.get(
